@@ -1,15 +1,17 @@
-# PeeriScope
+# PeeriScope: A Multi-Faceted Framework for Evaluating Peer Review Quality
 
-A modular FastAPI-based API to automatically analyze scientific paper reviews. The system extracts multiple review quality signals using multiple pretrained models.
+PeeriScope is a modular framework for evaluating the quality of scholarly peer reviews, accepted as a demo paper at The Web Conference (WWW) 2026. It combines interpretable structured metrics, rubric-guided large language model assessments, and supervised prediction to provide a multidimensional view of review quality beyond simple accept/reject signals. Designed for transparency, scalability, and easy integration, PeeriScope supports reviewer self-assessment, editorial triage, and large-scale auditing through both an interactive web interface and a programmatic API. This repository provides the official API documentation and usage guidelines, enabling seamless integration into editorial and research workflows.
+
+💻 The live platform is available at [https://app.reviewer.ly/app/peeriscope](https://app.reviewer.ly/app/peeriscope).
 
 ---
 
-## API Explanation
-PeeriScope provides three easy-to-use API endpoints to fit your workflow. The **Manual API** lets you submit a paper’s title and abstract, the text of a review, and optional reviewer details so it can compute a suite of quantifiable quality metrics. The **LLM API** accepts the same inputs but leverages large language models to deliver deeper, context-aware analysis of each review. And the **OpenReview API** requires only the URL of an OpenReview submission—it automatically retrieves every reviewer report for that manuscript and runs the full suite of quality assessments on them.
+## API Documentation
+PeeriScope offers three easy-to-use API endpoints tailored to your workflow. The **Manual API** enables you to submit a paper’s title and abstract, the text of a review, and optional reviewer details, allowing it to compute a suite of quantifiable quality metrics. The **LLM API** accepts the same inputs but leverages large language models to deliver deeper, context-aware analysis of each review. And the **OpenReview API** requires only the URL of an OpenReview submission—it automatically retrieves every reviewer report for that manuscript and runs the full suite of quality assessments on them.
 
-You can access the endpoint for this API at: https://app.reviewer.ly/apis/peeriscope
+⚙️ You can access the endpoint for this API at: [https://app.reviewer.ly/apis/peeriscope](https://app.reviewer.ly/apis/peeriscope)
 
-## API Example Request - Manual Mode
+### API Example Request - Manual Mode
 ```json
 {
   "review": "string",
@@ -20,7 +22,7 @@ You can access the endpoint for this API at: https://app.reviewer.ly/apis/peeris
 }
 ```
 
-## API Example Response - Manual Mode
+### API Example Response - Manual Mode
 ```json
 {
   "review_length": 0,
@@ -45,7 +47,7 @@ You can access the endpoint for this API at: https://app.reviewer.ly/apis/peeris
 }
 ```
 
-## API Example Request - Manual Mode LLM
+### API Example Request - Manual Mode LLM
 ```json
 {
   "review": "string",
@@ -56,7 +58,7 @@ You can access the endpoint for this API at: https://app.reviewer.ly/apis/peeris
 }
 ```
 
-## API Example Response - Manual Mode LLM
+### API Example Response - Manual Mode LLM
 ```json
 {
   "comprehensiveness": 0,
@@ -76,14 +78,14 @@ You can access the endpoint for this API at: https://app.reviewer.ly/apis/peeris
 ```
 
 
-## API Example Request - OpenReview
+### API Example Request - OpenReview
 ```json
 {
   "url": "string"
 }
 ```
 
-## API Example Response - OpenReview
+### API Example Response - OpenReview
 ```json
 {
   "analysis_results": [
@@ -133,58 +135,17 @@ You can access the endpoint for this API at: https://app.reviewer.ly/apis/peeris
 }
 ```
 
-## Expert Annotated Dataset
-In this section, we provide detailed instructions on how to download the dataset and a sample of the raw data.
+## Citation
+If you use this dataset in academic work, please cite our paper.
 
-### How to Download the Data
-Note: You need to install the gdown package to download the dataset.
-```bash
-pip install gdown
-```
-
-If you already have the gdown package installed, you can use the following commands to download the dataset:
-```bash
-cd human-annotation-data/
-gdown --folder https://drive.google.com/drive/folders/14zWD3G_z_1gXDLEAkI7lz3KK3NHkAH8w?usp=sharing
-```
-
-### Sample of the Raw Data
-Here's a sample data from Expert Annotated Dataset.
-```json
-{
-    "paper_id": "120",
-    "submitted_at": "2025-05-16T14:44:27.215679",
-    "metrics": {
-        "review_Peter-W.-Glynn_Comprehensiveness": 1,
-        "review_Peter-W.-Glynn_Usage_of_Technical_Terms": 4,
-        "review_Peter-W.-Glynn_Factuality": "partially factual",
-        "review_Peter-W.-Glynn_Sentiment_Polarity": "neutral",
-        "review_Peter-W.-Glynn_Politeness": "polite",
-        "review_Peter-W.-Glynn_Vagueness": "moderate",
-        "review_Peter-W.-Glynn_Objectivity": 3,
-        "review_Peter-W.-Glynn_Fairness": 3,
-        "review_Peter-W.-Glynn_Actionability": 4,
-        "review_Peter-W.-Glynn_Constructiveness": 4,
-        "review_Peter-W.-Glynn_Relevance_Alignment": 3,
-        "review_Peter-W.-Glynn_Clarity_and_Readability": 4,
-        "review_Peter-W.-Glynn_Overall_Quality": 70,
-        "review_Ciemon-Frank-Caballes_Comprehensiveness": 0,
-        "review_Ciemon-Frank-Caballes_Usage_of_Technical_Terms": 4,
-        "review_Ciemon-Frank-Caballes_Factuality": "unfactual",
-        "review_Ciemon-Frank-Caballes_Sentiment_Polarity": "neutral",
-        "review_Ciemon-Frank-Caballes_Politeness": "polite",
-        "review_Ciemon-Frank-Caballes_Vagueness": "high",
-        "review_Ciemon-Frank-Caballes_Objectivity": 2,
-        "review_Ciemon-Frank-Caballes_Fairness": 3,
-        "review_Ciemon-Frank-Caballes_Actionability": 1,
-        "review_Ciemon-Frank-Caballes_Constructiveness": 1,
-        "review_Ciemon-Frank-Caballes_Relevance_Alignment": 2,
-        "review_Ciemon-Frank-Caballes_Clarity_and_Readability": 3,
-        "review_Ciemon-Frank-Caballes_Overall_Quality": 2
-    }
+```bibtex
+@inproceedings{ebrahimi2026peeriscope,
+  title={PeeriScope: A Multi-Faceted Framework for Evaluating Peer Review Quality},
+  author={Ebrahimi, Sajad and Sadeghian, Soroush and Ghorbanpour, Ali and Arabzadeh, Negar and Salamat, Sara and Hosseini, Seyed Mohammad and Le, Hai Son and Bashari, Mahdi and Bagheri, Ebrahim},
+  booktitle={Companion Proceedings of the ACM Web Conference 2026 (WWW Companion '26)},
+  series = {WWW '26},
+  year={2026},
+  url = {https://doi.org/10.1145/3774905.3793128},
+  doi = {10.1145/3774905.3793128}
 }
 ```
-
-
-## License
-TBD
