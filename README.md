@@ -1,8 +1,9 @@
 # PeeriScope: A Multi-Faceted Framework for Evaluating Peer Review Quality
 
-PeeriScope is a modular framework for evaluating the quality of scholarly peer reviews, accepted as a demo paper at The Web Conference (WWW) 2026. It combines interpretable structured metrics, rubric-guided large language model assessments, and supervised prediction to provide a multidimensional view of review quality beyond simple accept/reject signals. Designed for transparency, scalability, and easy integration, PeeriScope supports reviewer self-assessment, editorial triage, and large-scale auditing through both an interactive web interface and a programmatic API. This repository provides the official API documentation and usage guidelines, enabling seamless integration into editorial and research workflows.
+Quick links: 📃 [Paper](https://reviewer.ly/wp-content/themes/reviewerly-vite-theme/dist/peeriscope.pdf) | 💻 [Demo](https://app.reviewer.ly/app/peeriscope)
 
-💻 The live platform is available at [https://app.reviewer.ly/app/peeriscope](https://app.reviewer.ly/app/peeriscope).
+
+PeeriScope is a modular framework for evaluating the quality of scholarly peer reviews, accepted as a demo paper at The Web Conference (WWW) 2026. It combines interpretable structured metrics, rubric-guided large language model assessments, and supervised prediction to provide a multidimensional view of review quality beyond simple accept/reject signals. Designed for transparency, scalability, and easy integration, PeeriScope supports reviewer self-assessment, editorial triage, and large-scale auditing through both an interactive web interface and a programmatic API. This repository provides the official API documentation and usage guidelines, enabling seamless integration into editorial and research workflows.
 
 ---
 
